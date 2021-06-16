@@ -1,0 +1,27 @@
+# basics
+
+create a basic pom.xml
+
+mvn --version
+
+# clean - removes target/ and class or jars
+mvn clean
+
+# package - creates target/ and jars
+mvn package
+
+# always folder structure as:
+src/main/java
+src/test/java
+
+src/main/resources
+src/test/resources
+
+# clean and package at the same time
+mvn clean package
+
+# add dependencies in pom.xml
+# however, dependent jars are only used in compile time
+# not included in the final fat jar of the application jar
+
+ 
