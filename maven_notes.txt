@@ -1,14 +1,15 @@
 # basics
 
 create a basic pom.xml
+- only using properties
 
-mvn --version
-
-# clean - removes target/ and class or jars
+# clean - removes target folder and class or jars
 mvn clean
 
-# package - creates target/ and jars
+# package - creates target folder and jars
 mvn package
+
+nothing is created if not a proper folder structure
 
 # always folder structure as:
 src/main/java
@@ -20,8 +21,14 @@ src/test/resources
 # clean and package at the same time
 mvn clean package
 
-# add dependencies in pom.xml
-# however, dependent jars are only used in compile time
-# not included in the final fat jar of the application jar
+- add dependencies in pom.xml
+- however, dependent jars are only used in compile time
+- not included in the final fat jar of the application jar
+
+------
+
+- build a maven project in intellij without using archetype
+- use the side blotter Maven -> Lifecycle to clean and package
+- IntelliJ Build project at top pane should not be used
 
  
