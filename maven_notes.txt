@@ -1,12 +1,29 @@
-# basics
+################
+# maven basics
+################
 
-create a basic pom.xml
+# get the maven version
+mvn --version
+
+# maven coordinates = groupId, artifactId, version
+
+# create a basic pom.xml
 - only using properties
+
+ex:
+<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+</properties>
 
 # clean - removes target folder and class or jars
 mvn clean
 
-# package - creates target folder and jars
+# package - creates target folder and jar for the application
+# (gradle build creates build folder)
 mvn package
 
 nothing is created if not a proper folder structure
@@ -25,10 +42,27 @@ mvn clean package
 - however, dependent jars are only used in compile time
 - not included in the final fat jar of the application jar
 
-------
-
-- build a maven project in intellij without using archetype
+# build a maven project in intellij without using archetype
 - use the side blotter Maven -> Lifecycle to clean and package
 - IntelliJ Build project at top pane should not be used
 
- 
+
+#####################
+# maven coordinates
+#####################
+
+- used to identify artifacts
+
+- groupId: companies url
+- artifactId: project name
+- version
+
+- groupId and version can be inherited from a parent POM 
+- thus submodules only need new artifactId
+
+# any version with suffix as SNAPSHOT:
+- dev version, unstable and maven will check the newer version from repo
+
+
+
+
