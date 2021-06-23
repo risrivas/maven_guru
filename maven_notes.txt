@@ -64,5 +64,31 @@ mvn clean package
 - dev version, unstable and maven will check the newer version from repo
 
 
+#####################
+# maven repositories
+#####################
+
+- locations where project artifacts are stored
+- 3 types:
+local - repository on local file system = <user_home>/.m2/
+central - public repository hosted by maven community = https://repo1.maven.org/maven2/
+remote - private or public = JBoss, Oracle, Atlassian or internal companies repo
+
+Project <-> local in ~/.m2/ <-> central, others
+
+- folder contains all the cached artifacts here: 
+~/.m2/repository/
+
+- central repository : easier to search in https://mvnrepository.com/ 
+
+- proxy settings in companies may require Maven Wagon
+
+
+
+
+
+
+
+
 
 
