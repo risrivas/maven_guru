@@ -57,7 +57,7 @@ mvn clean package
 - artifactId: project name
 - version
 
-- groupId and version can be inherited from a parent POM 
+- groupId and version can be inherited from a parent POM
 - thus submodules only need new artifactId
 
 # any version with suffix as SNAPSHOT:
@@ -76,17 +76,104 @@ remote - private or public = JBoss, Oracle, Atlassian or internal companies repo
 
 Project <-> local in ~/.m2/ <-> central, others
 
-- folder contains all the cached artifacts here: 
+- folder contains all the cached artifacts here:
 ~/.m2/repository/
 
-- central repository : easier to search in https://mvnrepository.com/ 
+- central repository : easier to search in https://mvnrepository.com/
 
 - proxy settings in companies may require Maven Wagon
 
 
+#####################
+# maven POM
+#####################
+
+- POM = Project Object Model
+- must comply with maven-4.0.0.xsd
+- poms can inherit properties from a parent pom
+
+- Effective-POM is with all inherited properties
+mvn help:effective-pom
+
+- IntelliJ : right click -> Maven -> Show Effective-POM
 
 
+#####################
+# maven dependencies
+#####################
 
+- dependency = a jar or pom
+- transitive = cyclic dependencies not supported
+- can chose versions
+
+- when multiple versions available, 'nearest definition' is used
+A->B; A->D 2.0; B->D 1.5
+D version 2.0 will be included
+
+- can exlude dependencies
+- can mark it optional - submodules no need to inherit it
+
+# Scope
+3 classpaths: compile (default), runtime, test
+
+
+#####################
+# maven build lifecycles
+#####################
+
+lifecycle -> phases -> plugin goals
+
+- lifecycle is a pre-defined group of build steps called "phases"
+- each phase can be bound to one or more plugin "goals"
+- all work done in Maven is done by plugins!
+- lifecycles and phases provide the framework to call plugin goals in sequence
+
+3 predefined lifecycles: clean, default, site
+
+
+###### clean ######
+- remove all build artifacts from working directory
+- basically remove everythng compiled or generated and target/ folder
+- plugin bindings available
+
+3 phases: pre-clean -> clean -> post-clean
+- only clean phase has plugin binding => Maven Clean Plugin => Goal: clean
+
+mvn clean
+
+###### default ######
+- build and deployment of project
+- no plugin bindings available (ex: for jar, war, etc)
+
+Phases: very detailed, below are high level:
+- validate: pom, dir structure etc
+- compile: compile source code
+- test: test compiled source code
+- package: package compiled files to packaging type
+- verify: run integration tests
+- install: install to local Maven Repository (~/.m2/)
+- deploy: deploy to shared Maven Repository
+
+Jar packaging
+- process-resources
+- compile
+- process-test-resources
+- test-compile
+- test
+- package
+- install
+- deploy
+
+###### site ######
+- create the website for project
+- plugin bindings available
+- hardly used in company :)
+
+4 phases:
+Pre-site
+Site
+Post-site
+Site-Deploy
 
 
 
