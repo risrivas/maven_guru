@@ -4,6 +4,7 @@
 
 # get the maven version
 mvn --version
+mvn -v
 
 # maven coordinates = groupId, artifactId, version
 
@@ -51,7 +52,7 @@ mvn clean package
 # maven coordinates
 #####################
 
-- used to identify artifacts
+- used to identify artifacts or location in a maven repository, thats why the name as "coordinates"
 
 - groupId: companies url
 - artifactId: project name
@@ -81,6 +82,7 @@ Project <-> local in ~/.m2/ <-> central, others
 
 - central repository : easier to search in https://mvnrepository.com/
 
+# maven wagon -- need some more understanding**
 - proxy settings in companies may require Maven Wagon
 
 
@@ -114,8 +116,14 @@ D version 2.0 will be included
 - can mark it optional - submodules no need to inherit it
 
 # Scope
-3 classpaths: compile (default), runtime, test
+3 main classpaths: compile (default), runtime (not required for compile!), test
+Can use "system" scope to add jar manually from a file path
 
+# useful goals - there should be similar steps for IntelliJ
+mvn dependency:tree - shows the dependency tree. Useful for resolving conflicts
+mvn dependency:go-offline - Resolve all, prepare to go offline
+mvn dependency:purge-local-repository - Clear artifacts from local repository
+mvn dependency:sources - get sources for all dependencies.
 
 #####################
 # maven build lifecycles
