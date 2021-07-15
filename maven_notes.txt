@@ -125,9 +125,9 @@ mvn dependency:go-offline - Resolve all, prepare to go offline
 mvn dependency:purge-local-repository - Clear artifacts from local repository
 mvn dependency:sources - get sources for all dependencies.
 
-#####################
+########################
 # maven build lifecycles
-#####################
+########################
 
 lifecycle -> phases -> plugin goals
 
@@ -138,7 +138,6 @@ lifecycle -> phases -> plugin goals
 
 3 predefined lifecycles: clean, default, site
 
-
 ###### clean ######
 - remove all build artifacts from working directory
 - basically remove everythng compiled or generated and target/ folder
@@ -146,7 +145,6 @@ lifecycle -> phases -> plugin goals
 
 3 phases: pre-clean -> clean -> post-clean
 - only clean phase has plugin binding => Maven Clean Plugin => Goal: clean
-
 mvn clean
 
 ###### default ######
@@ -163,14 +161,14 @@ Phases: very detailed, below are high level:
 - deploy: deploy to shared Maven Repository
 
 Jar packaging
-- process-resources
-- compile
-- process-test-resources
-- test-compile
-- test
-- package
-- install
-- deploy
+- mvn process-resources
+- mvn compile
+- mvn process-test-resources
+- mvn test-compile
+- mvn test
+- mvn package
+- mvn install
+- mvn deploy
 
 ###### site ######
 - create the website for project
@@ -182,6 +180,15 @@ Pre-site
 Site
 Post-site
 Site-Deploy
+
+
+#################
+# Maven Wrappers
+#################
+- wrapper over maven so that can be run from shell prompt or cmd
+- no need to install maven on the machine - can just use maven wrapper
+- command to generate mvn wrapper (take the version same as "mvn -v")
+ mvn -N io.takari:maven:wrapper -Dmaven=3.8.1
 
 
 
