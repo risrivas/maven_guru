@@ -191,6 +191,42 @@ Site-Deploy
  mvn -N io.takari:maven:wrapper -Dmaven=3.8.1
 
 
+##################
+# Maven Archetypes
+##################
+- project templates
+- same as what used in IntelliJ like maven-archetype-quickstart
+- mvn plugin:goal
+- example
+mvn archetype:generate
+
+
+################
+# Maven Plugins
+################
+1) CLEAN
+- only one goal - 'clean'
+- removes /target
+
+2) DEFAULT
+2.1 Compiler Plugin
+- 2 goals - compiler:compile, compiler:testCompile
+- default compiler: 'javax.tools.JavaCompiler' - may be changed to javac
+- default Java 1.6 - should be changed
+
+2.2 Resources plugin
+- 3 goals - resources:resources, resources:testResources, resources:copy-resources
+
+
+
+
+
+
+
+
+
+
+
 
 
 
