@@ -112,7 +112,7 @@ mvn help:effective-pom
 A->B; A->D 2.0; B->D 1.5
 D version 2.0 will be included
 
-- can exlude dependencies
+- can exclude dependencies
 - can mark it optional - submodules no need to inherit it
 
 # Scope
@@ -196,7 +196,8 @@ Site-Deploy
 ##################
 - project templates
 - same as what used in IntelliJ like maven-archetype-quickstart
-- mvn plugin:goal
+- basic maven commands syntax
+mvn plugin:goal
 - example
 mvn archetype:generate
 
@@ -216,6 +217,29 @@ mvn archetype:generate
 
 2.2 Resources plugin
 - 3 goals - resources:resources, resources:testResources, resources:copy-resources
+- copy project resources to output target dir
+- not used much
+
+2.3 Surefire plugin
+- 1 goal - surefile:test
+- execute unit test of the project
+- supports Junit, TestNG, Cucumber and Spock
+- default - looks for only test classes by name, like Test*.java, *Test.java, *Tests.java, *TestCase.java
+
+2.4 Jar plugin
+- 2 goals - jar:jar, jar:test-jar
+- build jars from compiled artifacts and resources
+
+2.5 Deploy plugin
+- 2 goals - deploy:deploy, deploy:deploy-file
+- deploy project artifacts to remote Maven repo
+- often done in CI
+- configured in pom.xml
+
+3) SITE
+- 7 goals
+- not used much
+
 
 
 
